@@ -1,0 +1,155 @@
+{% layout "homepage" %}
+
+<div class="frame">
+  <div class="header clearfix">
+    <div class="header-nav pull-left">
+      <a href="mailto:customercare@seelovemine.com">Getting touch</a>
+    </div>
+
+    <div class="header-nav pull-right">
+      Welcome,
+      <!-- <a href="#">Lover</a> -->
+      {% if address.last_name.exist? %}
+      <a href="#">{{address.last_name | upcase}}</a>
+      {% else %}
+        LOVER
+      {% endif %}
+    </div>
+
+    <h1 class="header-logo">SeeLoveMine</h1>
+
+    <!-- <a href="{{ shop.url }}" title="{{ shop.name }}">
+      {% if settings.use_logo %}
+        <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" class="header-logo" />
+      {% else %}
+        {{ shop.name }}
+      {% endif %}
+    </a> -->
+  </div>
+
+  <div class="hero" id="one">
+    <!-- <div class="hero-menu">
+      <div class="menu-highlight">
+        <div id="navshot">
+          <span class="curator">YASMIN'S</span>
+          <br/>
+          <span class="top5">Top 5</span>
+          <br/>
+          <span class="favnow">FAVOURITES <b>NOW</b></span>
+        </div>
+
+        
+
+      </div>
+      <div class="menu"><a href="#">Shop <b>New</b></a></div>
+      <div class="menu"><a href="#">Dresses</a></div>
+      <div class="menu"><a href="#">Bottoms</a></div>
+      <div class="menu"><a href="#">Outwear</a></div>
+      <div class="menu"><a href="#">Tops</a></div>
+
+      {% for link in linklists[settings.main_linklist].links %}
+          {% if linklists[link.handle] == empty %}
+            <div class="menu"><a href="{{ link.url }}" title="{{ link.title }}" {% if link.active %}class="active"{% endif %}>{{ link.title }}</a></div>
+          {% else %}
+            I OMMITED LINKED LIST FOR FUTURE DEVELOPMENT
+            <li><div class="menu"><a href="{{ link.url }}" title="{{ link.title }}" {% if link.active %}class="active"{% endif %} {% for link in linklists[link.handle].links %}{% if link.active %}class="active"{% endif %}{% endfor %}>{{ link.title }} 
+              <span class="arrow">&or;</span></a> 
+              <ul>
+                {% for link in linklists[link.handle].links %}
+                  {% if linklists[link.handle] == empty %}
+                    <li><div class="menu"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></div></li>
+                  {% else %}
+                  <li><div class="menu"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }} <span class="arrow"> &gt;</span></a> 
+                    <ul>
+                      {% for link in linklists[link.handle].links %}                        
+                        <li><div class="menu"><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></div></li>
+                      {% endfor %}
+                    </ul></div>
+                  </li>
+                  {% endif %}
+                {% endfor %}
+              </ul></div>
+            </li>
+          {% endif %}
+        {% endfor %}
+    </div> -->
+  </div>
+
+  <div class="cards">
+    <div class="row">
+      <div class="cards-col col-lg-5">
+        <div class="card">
+          <div id="card-carousel" class="card-carousel carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+              <div class="item">
+                <div class="card-thumb" style="height: 538px;"><img src="{{ 'slideshow_3.jpg' | asset_url }}" alt="{{ settings.image_3_alt_text | escape }}" /></div>
+              </div>
+              <div class="item active">
+                <div class="card-thumb" style="height: 538px;"><img src="{{ 'slideshow_4.jpg' | asset_url }}" alt="{{ settings.image_4_alt_text | escape }}" /></div>
+              </div>
+              <div class="item">
+                <div class="card-thumb" style="height: 538px;"><img src="{{ 'slideshow_5.jpg' | asset_url }}" alt="{{ settings.image_5_alt_text | escape }}" /></div>
+              </div>
+              </div>
+              <ol class="card-carousel-indicators carousel-indicators unstyled">
+              <li data-target="#card-carousel" data-slide-to="0">Weekday</li>
+              <li data-target="#card-carousel" data-slide-to="1" class="active">Weekend</li>
+              <li data-target="#card-carousel" data-slide-to="2">Night</li>
+            </ol>
+          </div>
+          <h1 class="card-name tophead">Essential</h1>
+          <div class="card-brief">Ways to wear</div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" style="height: 300px;" id="five"></div>
+          <h1 class="card-name tophead">Pencils</h1>
+          <div class="card-brief">Skirts</div>
+        </div>
+      </div>
+      <div class="cards-col col-lg-7">
+        <div class="card">
+          <div class="card-thumb" style="height: 442px;" id="six"></div>
+          <div class="card-tagline">Travel <b>NYC</b></div>
+          <h1 class="card-name tophead">Essential</h1>
+          <div class="card-brief">Overhaul Night Flight Checklist</div>
+        </div>
+
+        <div class="card">
+          <div class="card-thumb" style="height: 388px;" id="seven"></div>
+          <h1 class="card-name tophead">The Statements</h1>
+          <div class="card-brief">Detailed Sweaters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footerpage">
+    <div class="row-table">
+      <div class="col-cell">
+        <a href="#">
+          <b>Sign Up</b>
+          For The Latest Scoops
+        </a>
+      </div>
+      <div class="col-cell">
+        <a href="#">
+          <b>Free Delivery</b>
+          Within Malaysia
+        </a>
+      </div>
+      <div class="col-cell">
+        <a href="#">
+          <b>Material Guide</b>
+          & Size Charts
+        </a>
+      </div>
+      <div class="col-cell">
+        <a href="#">
+          <b>Shippings</b>
+          & Returns
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

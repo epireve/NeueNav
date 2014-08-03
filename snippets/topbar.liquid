@@ -1,0 +1,54 @@
+<div class="top_bar">
+  <div class="container">
+    <div class="one column">
+      <a href="{{ shop.url }}" title="{{ shop.name }}"><img src="{{ 'slm-symbol-white.png' | asset_url }}" alt="{{ shop.name }}" style="width:25px;" /></a>
+    </div>
+
+    <div class="five columns {% unless settings.search_box_top_bar %} offset-by-five {% endunless %}">
+      <ul>
+        <!-- <li>
+          {% if cart.item_count == 0 %}
+            <a href="/cart" title="Checkout" class="checkout">Checkout</a>
+          {% else %}
+            <a href="/checkout" title="Checkout" class="checkout">Checkout</a>
+          {% endif %}
+        </li> -->
+        
+        
+        {% if settings.top_bar_linklist != blank %}
+          {% for link in linklists[settings.top_bar_linklist].links %}
+            <li>
+              <a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+        <!-- <li><a href="{{ shop.url }}" title="{{ shop.name }}"><img src="{{ 'slm-symbol-white.png' | asset_url }}" alt="{{ shop.name }}" style="width:25px; position: relative" /></a></li> -->
+      </ul>
+    </div>
+
+    {% if settings.search_box_top_bar %}
+      <div class="four columns top_bar_search">         
+        <form class="search" action="/search">
+          <!-- <img src="http://www.widescreenwallpapershd.com/wp-content/uploads/love-heart-pictures-animated-for-myspace-with-quotes-tumblr-for-her-20140623153424-53a7e6900f020" width="50px"> -->
+            <input type="hidden" name="type" value="product" />
+            <input type="text" name="q" class="search_box" placeholder="Search..." value="{% if search and search.results.first.price %}{{ search.terms }}{% endif %}" />
+        </form>
+      </div>
+    {% endif %}
+
+    <div class="five columns {% unless settings.search_box_top_bar %} {% endunless %}">
+      <ul>
+        <li>
+          <a href="/cart" class="cart" title="cart"> ({{ cart.item_count }})</a>
+        </li>
+        {% if shop.customer_accounts_enabled %}
+          <li>
+            <a href="/account" title="My Account">My Account</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>        
+    
+    
+  </div>  
+</div> <!-- end of top_bar -->
